@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,10 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/home', function () {
     return view('home'); // Ganti 'home' dengan nama view yang sesuai
 })->name('home');
 Route::get('/telco-home', function () {
@@ -42,3 +43,10 @@ Route::get('/telhome', function () {
 Route::get('/vehicle', function () {
     return view('vehicle');
 })->name('vehicle');
+Route::get('/dashboard', function () {
+    return view('/dashboard.index');
+})->name('dashboard.index');
+
+// route::get('dashboard\layanan', [DashboardController::class, 'index'])->name('dashboard.index');
+route::get('dashboard\berita', [DashboardController::class, 'indexBerita'])->name('dashboard.berita');
+route::get('dashboard\layanan', [DashboardController::class, 'indexLayanan'])->name('dashboard.layanan');
