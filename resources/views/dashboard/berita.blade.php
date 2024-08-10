@@ -21,7 +21,7 @@
                       <th>Berita</th>
                       <th>Editor</th>
                       <th>Tanggal Pembuatan</th>
-                      <th>Actiob</th>
+                      <th>Action</th>
                     </tr>
                   </thead>
                   <tbody style="text-align: center">

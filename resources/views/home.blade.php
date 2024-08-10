@@ -15,6 +15,81 @@
       height: 50px;
       width: 50px;
     }
+    .modal-content {
+      border-radius: 10px;
+      padding: 2rem;
+      width: 100px;
+      height: 550px;
+      word-wrap: break-word; /* Menambahkan word-wrap */
+      overflow-wrap: break-word; /* Tambahan untuk dukungan browser lainnya */
+    }
+    .modal-header {
+      background-color: #007bff;
+      color: #fff;
+      border-bottom: none;
+      border-radius: 10px 10px 0 0;
+    }
+    .modal-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    .modal-body {
+      padding: 2rem;
+      width: 400px;
+      height: 400px; /* Atur tinggi otomatis */
+      max-height: 80vh; /* Maksimum tinggi 80% dari tinggi viewport */
+      /* overflow-y: auto; Tambahkan scroll jika konten melebihi tinggi */
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .btn-primary {
+      background-color: #007bff;
+      border-color: #007bff;
+    }
+    .btn-primary:hover {
+      background-color: #0056b3;
+      border-color: #004085;
+    }
+    .form-label {
+      font-weight: bold;
+    }
+    .form-control {
+      border-radius: 0.25rem;
+      box-shadow: none;
+      border: 1px solid #ffffff;
+    }
+    .form-control:focus {
+      box-shadow: none;
+      border-color: #007bff;
+    }
+    .form-control.short-input {
+      max-width: 300px; /* Atur lebar maksimal input field */
+    }
+    #resultModal .modal-body {
+      padding: 1.5rem;
+    }
+    .result-title {
+      font-size: 1.25rem;
+      font-weight: bold;
+    }
+    .result-item {
+      margin: 0.5rem 0;
+      border: 1px solid #ced4da;  
+      border-radius: 0.25rem;
+      padding: 0.5rem;
+      background-color: #ffffff;
+    }
+    .main-banner {
+  background-image: url('../pemanis/assets/images/bg.jpeg');
+  background-size: cover; /* Make sure the background covers the entire container */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Prevent background from repeating */
+  padding: 60px 0; /* Add some padding to make the content look better */
+  color: #fff; /* Set default text color to white to contrast with the background */
+}
+    
+    
   </style>
 </head>
 <body>
@@ -26,7 +101,7 @@
   </div>
 
   <div class="whatsapp-button">
-    <a href="https://wa.me/628112103595?text=Assalamualaikum%20Hallo%20KOPTEL%20Mohon%20info%20super" class="link_chat">
+    <a href="https://wa.me/628112103595?" class="link_chat">
       <img src="https://koptel.co.id/assets/img/whatsapp.png" alt="WhatsApp">
     </a>
   </div>
@@ -85,7 +160,7 @@ https://templatemo.com/tm-562-space-dynamic
             <!-- ***** Menu Start ***** -->
             <ul class="nav">
                 <li><a href="#top" class="active">Beranda</a></li>
-                <li><a href="#about">Tentang Kami</a></li>
+                <li><a href="/about">Tentang Kami</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropbtn">Layanan Kami</a>
                     <div class="dropdown-content" style="background-color: #ffffff; width: auto; font-size: 10px;">
@@ -110,8 +185,10 @@ https://templatemo.com/tm-562-space-dynamic
     </div>
   </header>
   <!-- ***** Header Area End ***** -->
+  
 
-  <div class="main-banner wow fadeIn main-content" id="top" data-wow-duration="1s" data-wow-delay="0.5s">
+  <div class="main-banner wow fadeIn main-content" id="top" data-wow-duration="1s" data-wow-delay="0.5s" >
+    
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
@@ -120,15 +197,64 @@ https://templatemo.com/tm-562-space-dynamic
               <div class="left-content header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
                 <h6>Selamat datang di Koperasi Telkom</h6>
                 <h2>Meningkatkan <em>Kesejahteraan</em> <span>Anggota</span></h2>
-                <h6><p>KOPTEL merupakan koperasi sekunder di bawah naungan PT. Telkom Indonesia.</p></h6>
-                <form id="search" action="#" method="GET">
-                  <fieldset>
-                    <input type="address" name="address" class="email" placeholder="Your website URL..." autocomplete="on" required>
-                  </fieldset>
-                  <fieldset>
-                    <button type="submit" class="main-button">Analyze Site</button>
-                  </fieldset>
-                </form>
+                <p>KOPTEL merupakan koperasi sekunder di bawah naungan PT. Telkom Indonesia.</p>
+                <!-- Button to trigger credit simulation modal -->
+                {{-- <button type="button" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#kreditModal">
+                  Simulasi Kredit
+                </button>
+  
+                <!-- Credit Simulation Modal -->
+                <div class="modal fade" id="kreditModal" tabindex="-1" aria-labelledby="kreditModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="kreditModalLabel">Simulasi Kredit</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        <form id="simulasiKreditForm" class="d-flex flex-column justify-content-between" style="flex-grow: 1;">
+                          <div>
+                            <div class="mb-3">
+                              <label for="principal" class="form-label">Jumlah Pinjaman</label>
+                              <input type="number" class="form-control short-input" id="principal" placeholder="Masukkan jumlah pinjaman" required>
+                            </div>
+                            <div class="mb-3">
+                              <label for="interestRate" class="form-label">Suku Bunga (%)</label>
+                              <input type="number" class="form-control short-input" id="interestRate" placeholder="Masukkan suku bunga per tahun" required>
+                            </div>
+                            <div class="mb-3">
+                              <label for="tenure" class="form-label">Jangka Waktu (tahun)</label>
+                              <input type="number" class="form-control short-input" id="tenure" placeholder="Masukkan jangka waktu pinjaman" required>
+                            </div>
+                          </div>
+                        </form>
+                        <button type="button" class="btn btn-primary align-self-end" id="calculateButton">Hitung</button>
+                      </div>
+                    </div>
+                  </div>
+                </div> <!-- End of Credit Simulation Modal -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> 
+
+  <!-- Result Modal -->
+  <div class="modal fade" id="resultModal" tabindex="-1" aria-labelledby="resultModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="resultModalLabel">Hasil Simulasi Kredit</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="result">
+          <!-- Hasil perhitungan akan ditampilkan di sini -->
+        </div>
+      </div>
+    </div>
+  </div> --}}
               </div>
             </div>
             <style>
@@ -143,14 +269,13 @@ https://templatemo.com/tm-562-space-dynamic
               }
             </style>
           </head>
-          <body>
-            <div class="col-lg-6">
+            {{-- <div class="col-lg-6">
               <div class="right-image wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
                 <img id="slideshow-image"class="img-hero" src="pemanis/assets/images/banner-right-image.png" alt="team meeting">
               </div>
-            </div>
+            </div> --}}
           
-            <script>
+            {{-- <script>
               const images = [
                 'pemanis/assets/images/berita.png',
                 // 'pemanis/assets/images/penyerahan.png',
@@ -167,7 +292,7 @@ https://templatemo.com/tm-562-space-dynamic
               }
           
               setInterval(changeImage, 3000); // Ganti gambar setiap 3 detik (3000 ms)
-            </script> 
+            </script>  --}}
             
             </div>
           </div>
@@ -199,42 +324,48 @@ https://templatemo.com/tm-562-space-dynamic
                 </style>
                 
                 <div class="services">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="item wow fadeIn" data-wow-duration="1s" data-wow-delay="0.5s">
-                                <div class="icon">
-                                    <img src="pemanis/assets/images/service-icon-01.png" alt="telco vehicle">
-                                </div>
-                                <div class="right-text">
-                                    <h4>Telco Vehicle</h4>
-                                    <p>Lorem ipsum dolor sit amet, ctetur aoi adipiscing eliter</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="item wow fadeIn" data-wow-duration="1s" data-wow-delay="0.7s">
-                                <div class="icon">
-                                    <img src="pemanis/assets/images/service-icon-02.png" alt="telco super">
-                                </div>
-                                <div class="right-text">
-                                    <h4>Telco Super</h4>
-                                    <p>Lorem ipsum dolor sit amet, ctetur aoi adipiscing eliter</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="item wow fadeIn" data-wow-duration="1s" data-wow-delay="0.9s">
-                                <div class="icon">
-                                    <img src="pemanis/assets/images/service-icon-03.png" alt="telco home">
-                                </div>
-                                <div class="right-text">
-                                    <h4>Telco Home</h4>
-                                    <p>Lorem ipsum dolor sit amet, ctetur aoi adipiscing eliter</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                  <div class="row">
+                      <div class="col-lg-12">
+                          <a href="/vehicle">
+                              <div class="item wow fadeIn" data-wow-duration="1s" data-wow-delay="0.5s">
+                                  <div class="icon">
+                                      <img src="pemanis/assets/images/service-icon-01.png" alt="telco vehicle">
+                                  </div>
+                                  <div class="right-text">
+                                      <h4>Telco Vehicle</h4>
+                                      <p>Lorem ipsum dolor sit amet, ctetur aoi adipiscing eliter</p>
+                                  </div>
+                              </div>
+                          </a>
+                      </div>
+                      <div class="col-lg-12">
+                          <a href="/super">
+                              <div class="item wow fadeIn" data-wow-duration="1s" data-wow-delay="0.7s">
+                                  <div class="icon">
+                                      <img src="pemanis/assets/images/service-icon-02.png" alt="telco super">
+                                  </div>
+                                  <div class="right-text">
+                                      <h4>Telco Super</h4>
+                                      <p>Lorem ipsum dolor sit amet, ctetur aoi adipiscing eliter</p>
+                                  </div>
+                              </div>
+                          </a>
+                      </div>
+                      <div class="col-lg-12">
+                          <a href="/telhome">
+                              <div class="item wow fadeIn" data-wow-duration="1s" data-wow-delay="0.9s">
+                                  <div class="icon">
+                                      <img src="pemanis/assets/images/service-icon-03.png" alt="telco home">
+                                  </div>
+                                  <div class="right-text">
+                                      <h4>Telco Home</h4>
+                                      <p>Lorem ipsum dolor sit amet, ctetur aoi adipiscing eliter</p>
+                                  </div>
+                              </div>
+                          </a>
+                      </div>
+                  </div>
+              </div>
                 
                 <style>
                     .item {
@@ -323,14 +454,14 @@ https://templatemo.com/tm-562-space-dynamic
   </div> --}}
 
   <div id="portfolio" class="our-portfolio section">
-    <div class="container">
+    {{-- <div class="container"> --}}
       <div class="row">
         {{-- <div class="col-lg-6 offset-lg-3">
           <div class="section-heading  wow bounceIn" data-wow-duration="1s" data-wow-delay="0.2s">
             <h2>Layanan <em>Kami</em></h2>
           </div>
         </div> --}}
-      </div>
+      {{-- </div> --}}
       <div class="row justify-content-center">
         <div class="col-lg-3 col-sm-6">
             <a href="/vehicle">
@@ -403,7 +534,7 @@ https://templatemo.com/tm-562-space-dynamic
       <div class="row">
         <div class="col-lg-6 wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.25s">
           <div class="section-heading">
-            <h1>BERITA SEPUTAR KOPTEL</h1>
+            <h1>BERITA TERBARU </h1>
           </div>
         </div>
         <div class="col-lg-6 wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.25s">
@@ -415,22 +546,39 @@ https://templatemo.com/tm-562-space-dynamic
       <div class="row">
         <div class="col-lg-6 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.25s">
           <div class="left-image">
-            <a href="#"><img src="pemanis/assets/images/berita.png" alt=""></a>
+            <a href="#"><img src="pemanis/assets/images/berita.png" width="100" height="400" alt=""></a>
             <div class="info">
               <div class="inner-content">
                 <ul>
-                  <li><i class="fa fa-calendar"></i>  2022-11-21 13:44:271</li>
+                  {{-- <li><i class="fa fa-calendar"></i>  2022-11-21 13:44:271</li> --}}
                 </ul>
-                <a href="#"><h4>HUT KOPTEL KE - 32</h4></a>
+                <a href="/berita"><h4>HUT KOPTEL KE - 32</h4></a>
                 <p>HUT KOPTEL - (21/11/2022, Bandung) – Hari ini pada Tanggal 21 November 2022 KOPTEL berulang tahun ke-32...</p>
-                <div class="main-blue-button">
-                  <a href="/berita">Selengkapnya</a>
+                <div class="main-blue-button mb-3">
+                  <a href="/berita">Berita lainnya</a>
                 </div>
               </div>
             </div>
           </div>
         </div>
         <div class="col-lg-6 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.25s">
+          <div class="left-image">
+            <a href="#"><img src="pemanis/assets/images/divre.png" width="100" height="400" alt=""></a>
+            <div class="info">
+              <div class="inner-content">
+                <ul>
+                  {{-- <li><i class="fa fa-calendar"></i>  2022-11-21 13:44:271</li> --}}
+                </ul>
+                <a href="/berita"><h4>KERJASAMA KOPTEL - APARTMENT ATLANTA DEPOK - DIVRE II</h4></a>
+                <p> Telah dilakukan penandatanganan kerjasama pemasaran apartment Atlanta bagi karyawan Telkom Group....</p>
+                {{-- <div class="main-blue-button mt-5 pt-5">
+                  <a href="/berita">Selengkapnya</a>
+                </div> --}}
+              </div>
+            </div>
+          </div>
+        </div>
+        {{-- <div class="col-lg-6 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.25s">
           <div class="right-list">
             <ul>
               <li>
@@ -466,12 +614,12 @@ https://templatemo.com/tm-562-space-dynamic
               </li>
             </ul>
           </div>
-        </div>
+        </div> --}}
       </div>
     </div>
   </div>
 
-  <div id="contact" class="contact-us sectionm mt-5 pt-5">
+  {{-- <div id="contact" class="contact-us sectionm mb-5 pb-5">
     <div class="container">
       <div class="row">
         <div class="col-lg-6 align-self-center wow fadeInLeft" data-wow-duration="0.5s" data-wow-delay="0.25s">
@@ -482,11 +630,12 @@ https://templatemo.com/tm-562-space-dynamic
               <h4>For any enquiry, Call Us: <span><i class="fa fa-phone"></i> <a href="#">010-020-0340</a></span></h4>
             </div>
           </div>
-        </div>
-        <div class="col-lg-6 wow fadeInRight" data-wow-duration="0.5s" data-wow-delay="0.25s">
+        </div> --}}
+        {{-- <div class="col-lg-6 wow fadeInRight" data-wow-duration="0.5s" data-wow-delay="0.25s">
+          
           <form id="contact" action="" method="post">
-            <div class="row">
-              <div class="col-lg-6">
+            <div class="row"> --}}
+              {{-- <div class="col-lg-6">
                 <fieldset>
                   <input type="name" name="name" id="name" placeholder="Name" autocomplete="on" required>
                 </fieldset>
@@ -505,8 +654,8 @@ https://templatemo.com/tm-562-space-dynamic
                 <fieldset>
                   <textarea name="message" type="text" class="form-control" id="message" placeholder="Message" required=""></textarea>  
                 </fieldset>
-              </div>
-              <div class="col-lg-12">
+              </div> --}}
+              {{-- <div class="col-lg-12">
                 <fieldset>
                   <button type="submit" id="form-submit" class="main-button ">Send Message</button>
                 </fieldset>
@@ -514,15 +663,15 @@ https://templatemo.com/tm-562-space-dynamic
             </div>
             <div class="contact-dec">
               <img src="pemanis/assets/images/contact-decoration.png" alt="">
-            </div>
-          </form>
+            </div> --}}
+          {{-- </form>
         </div>
       </div>
     </div>
-  </div>
+  </div> --}}
     <div class="mt-5 pt-5 map_main">
       <div class="map-responsive" style="border: 5px solid #000; padding: 10px; border-radius: 10px;">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1980.4494463030883!2d107.6241818449691!3d-6.902693531186324!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e7b4650aa5ad%3A0x8ea35f88388b0932!2sKoperasi%20Telkom!5e0!3m2!1sid!2sid!4v1718810756969!5m2!1sid!2sid" width="1270" height="700" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1980.4494463030883!2d107.6241818449691!3d-6.902693531186324!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e7b4650aa5ad%3A0x8ea35f88388b0932!2sKoperasi%20Telkom!5e0!3m2!1sid!2sid!4v1718810756969!5m2!1sid!2sid" width="1440" height="700" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </div>
     
@@ -611,6 +760,32 @@ $(document).ready(function() {
             $('.main-content').show();
            }, 1000);
         });
+        $(document).ready(function(){
+      $('#calculateButton').on('click', function() {
+        var principal = parseFloat($('#principal').val());
+        var interestRate = parseFloat($('#interestRate').val()) / 100;
+        var tenure = parseFloat($('#tenure').val());
+
+        var monthlyRate = interestRate / 12;
+        var numberOfPayments = tenure * 12;
+        var monthlyPayment = (principal * monthlyRate) / (1 - Math.pow(1 + monthlyRate, -numberOfPayments));
+        var totalPayment = monthlyPayment * numberOfPayments;
+        var totalInterest = totalPayment - principal;
+
+        var resultHtml = `
+          <div class="result-title">Hasil Simulasi:</div>
+          <div class="result-item">Angsuran Bulanan: Rp ${monthlyPayment.toFixed(2)}</div>
+          <div class="result-item">Total Pembayaran: Rp ${totalPayment.toFixed(2)}</div>
+          <div class="result-item">Total Bunga: Rp ${totalInterest.toFixed(2)}</div>
+        `;
+        
+        
+        $('#result').html(resultHtml);
+        $('#kreditModal').modal('hide'); // Menyembunyikan modal simulasi kredit
+        $('#resultModal').modal('show'); // Menampilkan modal hasil perhitungan
+        
+      }); 
+    });
 
         
 </script>

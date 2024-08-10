@@ -15,6 +15,32 @@
       height: 50px;
       width: 50px;
     }
+    .container-history {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-top: 50px;
+    }
+
+    .text-section {
+      flex: 1;
+      padding: 20px;
+    }
+
+    .image-section {
+      flex: 1;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start; /* Align items to the start to move the image upwards */
+    }
+
+    .image-section img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      margin-top: 50px; /* Negative margin to move the image upwards */
+    }
   </style>
 </head>
 <body>
@@ -84,7 +110,7 @@ https://templatemo.com/tm-562-space-dynamic
             <!-- ***** Logo End ***** -->
             <!-- ***** Menu Start ***** -->
             <ul class="nav">
-                <li> <a href="{{ route('home') }}">Beranda</a></li>
+                <li><a href="/home">Beranda</a></li>
                 <li><a href="#about">Tentang Kami</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropbtn">Layanan Kami</a>
@@ -109,87 +135,37 @@ https://templatemo.com/tm-562-space-dynamic
       </div>
     </div>
   </header>
-  <body>
-  
-    {{-- <!-- ***** Header Area Start ***** -->
-    <header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
-      <!-- konten header -->
-    </header> --}}
-    <!-- ***** Header Area End ***** -->
-  
-    <div id="blog" class="our-blog section mb-5 pb-5">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-6 wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.25s">
-            <div class="section-heading">
-              <h1>BERITA SEPUTAR KOPTEL</h1>
-            </div>
-          </div>
-          <div class="col-lg-6 wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.25s">
-            <div class="top-dec">
-              <img src="pemanis/assets/images/logo.png"style="height: 100px; width: auto; alt=">
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-6 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.25s">
-            <div class="left-image">
-              <a href="#"><img src="pemanis/assets/images/berita.png" alt=""></a>
-              <div class="info">
-                <div class="inner-content">
-                  <ul>
-                    <li><i class="fa fa-calendar"></i>  2022-11-21 13:44:271</li>
-                  </ul>
-                  <a href="#"><h4>HUT KOPTEL KE - 32</h4></a>
-                  <p>HUT KOPTEL - (21/11/2022, Bandung) – Hari ini pada Tanggal 21 November 2022 KOPTEL berulang tahun ke-32...</p>
-                  <div class="main-blue-button">
-                    {{-- <a href="/berita">Selengkapnya</a> --}}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-6 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.25s">
-            <div class="right-list">
-              <ul>
-                <li>
-                  <div class="left-content align-self-center">
-                    <span><i class="fa fa-calendar"></i> 2020-06-18 08:53:35</span>
-                    <a href="#"><h4>KERJASAMA KOPTEL - GREEN AVENUE APARTMENT, LRT CITY BEKASI</h4></a>
-                    <p>PT Adhi Commuter Property, salah satu anak perusahaan dari BUMN AdhiKarya yang mendapat privilage pembangunan proyek LRT ...</p>
-                  </div>
-                  <div class="right-image">
-                    <a href="#"><img src="pemanis/assets/images/kerjasama.png" alt=""></a>
-                  </div>
-                </li>
-                <li>
-                  <div class="left-content align-self-center">
-                    <span><i class="fa fa-calendar"></i>2020-06-18 09:14:01 </span>
-                    <a href="#"><h4>KERJASAMA KOPTEL - APARTMENT ATLANTA DEPOK - DIVRE II</h4></a>
-                    <p>Tanggal 3 Februari 2020 bertempat di Apartment Atlanta Jalan Margonda Depok, telah dilakukan penandatanganan...</p>
-                  </div>
-                  <div class="right-image">
-                    <a href="#"><img src="pemanis/assets/images/divre.png" alt=""></a>
-                  </div>
-                </li>
-                
-                <li>
-                  <div class="left-content align-self-center">
-                    <span><i class="fa fa-calendar"></i> 2020-06-16 13:45:38</span>
-                    <a href="#"><h4>RAT KOPTEL Tahun Buku 2019</h4></a>
-                    <p>Rapat Anggota Tahunan KOPTEL tahun buku 2019 telah dilaksanakan pada tanggal 8 Juni 2020...</p>
-                  </div>
-                  <div class="right-image">
-                    <a href="#"><img src="pemanis/assets/images/rat.png" alt=""></a>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
+    <!-- Main Content -->
+  <div class="container container-history mt-5 pt-5">
+    <div class="text-section">
+      <h1>Sejarah Koperasi Telkom</h1>
+      <p>
+
+        KOPTEL didirikan pada 21 November 1990 sebagai koperasi sekunder di lingkungan PT. Telkom Indonesia dengan anggota yang terdiri dari KOPEGTEL di seluruh Indonesia. KOPEGTEL merupakan koperasi primer yang sudah berdiri 6 tahun sebelum KOPTEL didirikan. Koperasi sekunder ini didirikan dengan nama Koperasi Jasa Usaha Bersama Telekomunikasi dan kemudian berganti nama menjadi Koperasi PT Telekomunikasi Indonesia.
+        
+        Pendirian KOPTEL diprakarsai oleh Direktur Utama PT. TELKOM (D/H PERUMTEL) Cacuk Sudaryanto, Pengurus KOPEGTEL, dan Pembina KOPEGTEL dengan tujuan mengoptimalkan potensi ekonomi dengan melakukan pembinaan dan pengembangan baik dalam pengembangan usaha, kebutuhan pendanaan, dan peningkatan kualitas SDM para anggotanya
+        
+        Pendirian KOPTEL diawali dengan pembentukan Panitia Persiapan Pendirian Koperasi Jasa Usaha Bersama Telekomunikasi dengan dilakukan kegiatan mengenai peletakan nilai-nilai dasar tentang perlunya para pegawai turut berpartisipasi dalam aktivitas bersama dalam menunjang kesejahteraan pegawai terutama dalam bidang perumahan (papan).
+      </p>
+      <h2>Visi dan Misi</h2>
+      <p>
+        KOPTEL melaksanakan kegiatannya berdasarkan pada semangat Koperasi yaitu : Kerjasama, Kekeluargaan, dan Gotong Royong serta menginduk kepada kebijakan manajemen perusahaan yaitu PT. TELKOM.
+      </p>
+      <h2>Visi</h2>
+      <ul>
+        <li>Menjadi penyelenggara bisnis Koperasi Terdepan.</li>
+      </ul>
+      <h2>Misi</h2>
+      <ul>
+        <li>1. Mengutamakan penghimpunan dan penyaluran pembiayaan.</li>
+        <li>2. Mewujudkan pertumbuhan dan keuntungan yang berkesinambungan</li>
+        <li>3. Menyediakan produk dan layanan yang mengedepankan etika sesuai dengan prinsip syariah</li>
+      </ul>
     </div>
-  
+    <div class="image-section">
+      <img src="pemanis/assets/images/kops.png" alt="Sejarah Koperasi Telkom">
+    </div>
+  </div>
   
 
    <!-- Scripts -->

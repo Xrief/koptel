@@ -74,13 +74,13 @@
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <div class="user-profile">
           <div class="user-image">
-            <img src="images/faces/face28.png">
+            <img src="pemanis/assets/images/atmin.png">
           </div>
           <div class="user-name">
-              Edward Spencer
+              Admin sudah tiba
           </div>
           <div class="user-designation">
-              Developer
+              {{-- Developer --}}
           </div>
         </div>
         <ul class="nav">
@@ -111,7 +111,7 @@
             <div class="col-xl-3 flex-column d-flex grid-margin stretch-card">
               <div class="row flex-grow">
                 <div class="card">
-                    
+
                 </div>
               </div>
             </div>

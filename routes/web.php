@@ -18,6 +18,9 @@ use App\Http\Controllers\DashboardController;
 //     return view('welcome');
 // });
 Route::get('/', function () {
+    return view('home2'); // Ganti 'home' dengan nama view yang sesuai
+})->name('home');
+Route::get('/home', function () {
     return view('home'); // Ganti 'home' dengan nama view yang sesuai
 })->name('home');
 Route::get('/telco-home', function () {
@@ -34,6 +37,9 @@ Route::get('/telco-vehicle', function () {
 Route::get('/berita', function () {
     return view('berita');
 })->name('berita');
+Route::get('/about', function () {
+    return view('about');
+})->name('about');
 Route::get('/super', function () {
     return view('super');
 })->name('super');
